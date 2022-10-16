@@ -1,0 +1,76 @@
+<div class="container-fluid">
+    <div class="row" width="100%">
+        <div class="col-md-4  mt-5">
+            <form autocomplete="off" [formGroup]="forma">
+                <div *ngIf="this.equipo.nickname == ''; else hayEquipo">
+                    <h4 class="display-5" align='center'>{{ 'MATCHDAY.SELECT.TEAMS' | translate }}</h4>
+                </div>
+                <ng-template #hayEquipo>
+                    <h3 class="display-5" align='center'>{{ this.equipo.name }}</h3>
+                </ng-template>
+                <div class="form-group row">
+                    <label class="col-4 col-form-label">{{ "MATCHDAY.SEASON" | translate}}</label>
+                    <div class="col-8">
+                        <mat-select class="form-control" formControlName="temporada" [disabled]="seasons.length === 0" [(ngModel)]="this.season">
+                            <mat-option *ngFor="let item of this.seasons" [value]="item.id">
+                                {{item.nombre}}
+                            </mat-option>
+                        </mat-select>
+                        <small *ngIf="this.forma.controls['temporada'].invalid && this.forma.controls['temporada'].touched" class="form-text text-danger">{{ "FORM.ERROR.SEASON" | translate}}</small>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-4 col-form-label">{{ "MATCHDAY.TEAM" | translate}}</label>
+                    <div class="col-8">
+                        <mat-select class="form-control" formControlName="equipo" [disabled]="teams.length === 0" [(ngModel)]="this.equipo" (selectionChange)="cargarPlantilla(this.equipo, this.season)">
+                            <mat-option *ngFor="let item of this.teams" [value]="item">
+                                {{item.nickname}}
+                            </mat-option>
+                        </mat-select>
+                        <small *ngIf="this.forma.controls['equipo'].invalid && this.forma.controls['equipo'].touched" class="form-text text-danger">{{ "FORM.ERROR.TEAM" | translate}}</small>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-4 col-form-label">{{ "MATCHDAY.STRATEGY" | translate}}</label>
+                    <div class="col-8">
+                        <mat-select class="form-control" formControlName="estrategia" [disabled]="teams.length === 0" [(ngModel)]="estrategial" (selectionChange)="cargarPosicionesEstrategia()">
+                            <mat-option *ngFor="let item of estrategia" [value]="item">
+                                {{item}}
+                            </mat-option>
+                        </mat-select>
+                        <small *ngIf="this.forma.controls['estrategia'].invalid && this.forma.controls['estrategia'].touched" class="form-text text-danger">{{ "FORM.ERROR.STRATEGY" | translate}}</small>
+                    </div>
+                </div>
+                <div class="row" [hidden]="this.equipo.nickname == ''">
+                    <img [src]="''+this.equipo.urlpic| noimage:'escudo'" matTooltip={{this.equipo.id}} class="img-fluid supertarjeta">
+                </div>
+            </form>
+        </div>
+        <div class="col-md-8 mt-5" [hidden]="this.equipo.id === 0">
+            <div cdkDropListGroup>
+                <div class="col-md-4 example-container">
+                    <h3>{{ 'MATCHDAY.PLANTILLA' | translate }}</h3>
+                    <div cdkDropList [cdkDropListData]="plantilla" class="example-list" (cdkDropListDropped)="drop($event)">
+                        <div class="example-box" *ngFor="let player of plantilla" cdkDrag>
+                            <div class="example-custom-placeholder" *cdkDragPlaceholder>{{player.dorsal}}.{{player.nickname}}</div>{{player.dorsal}}.{{player.nickname}}-({{ player.position | posiciones:datosPosiciones:'es' }})
+                            <img *cdkDragPreview [src]="''+player.idPlayer | noimage:'jugadora'" class="img-fluid poster">
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-md-4 example-container">
+                    <h3>{{ 'MATCHDAY.CONVOCADOS' | translate }} ({{ this.estrategial }})</h3>
+                    <div cdkDropList [cdkDropListData]="convocados" class="example-list" (cdkDropListDropped)="drop($event)">
+                        <div class="example-box" *ngFor="let player of convocados" cdkDrag>
+                            <div class="example-custom-placeholder" *cdkDragPlaceholder></div>
+                            <div *ngIf="player.dorsal.length > 0">{{player.dorsal}}.{{player.nickname}}-({{ player.positionmatch | posiciones:datosPosiciones:'es' }})</div>
+                            <div *ngIf="player.dorsal.length == 0">{{ player.positionmatch | posiciones:datosPosiciones:'es' }}</div>
+                            <img *ngIf="player.dorsal.length > 0" [src]="''+player.idPlayer | noimage:'jugadora'" class="img-fluid tarjeta">
+                            <img *cdkDragPreview [src]="''+player.idPlayer | noimage:'jugadora'" class="img-fluid poster">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

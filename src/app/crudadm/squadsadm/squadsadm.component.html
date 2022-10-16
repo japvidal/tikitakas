@@ -1,0 +1,128 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-4 mt-5">
+            <form autocomplete="off" [formGroup]="forma">
+                <mat-accordion class="headers-align">
+                    <mat-expansion-panel [expanded]="step === 0" (opened)="setStep(0)" hideToggle>
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>
+                                {{"FORM.FIELD.SEASON" | translate }}
+                            </mat-panel-title>
+                            <mat-panel-description>
+                                {{ this.season }}
+                            </mat-panel-description>
+                        </mat-expansion-panel-header>
+                        <mat-form-field appearance="fill">
+                            <mat-select class="form-control" formControlName="season" [disabled]="seasons.length === 0" [(ngModel)]="this.playerteam.season" (selectionChange)="cargarEquipos($event)">
+                                <mat-option value="">{{ "FORM.FIELD.SELECT.SEASON" | translate}}</mat-option>
+                                <mat-option *ngFor="let item of seasons" [value]="item.id">
+                                    {{ item.nombre }}
+                                </mat-option>
+                            </mat-select>
+                            <small *ngIf="this.forma.controls['season'].invalid && this.forma.controls['season'].touched" class="form-text text-danger">{{ "FORM.ERROR.SEASON" | translate}}</small>
+                        </mat-form-field>
+                        <mat-action-row>
+                            <button mat-button color="primary" (click)="nextStep()">{{ "FORM.FIELD.TEAM" | translate}}</button>
+                        </mat-action-row>
+                    </mat-expansion-panel>
+                    <mat-expansion-panel [expanded]="step === 1" (opened)="setStep(1)" hideToggle>
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>
+                                {{"FORM.FIELD.TEAM" | translate }}
+                            </mat-panel-title>
+                            <mat-panel-description>
+                                {{ team.name }}
+                            </mat-panel-description>
+                        </mat-expansion-panel-header>
+                        <mat-form-field appearance="fill">
+                            <mat-select class="form-control" formControlName="equipo" [disabled]="teams.length === 0" [(ngModel)]="this.playerteam.idTeam" (selectionChange)="cargarPlantillas(this.playerteam.idTeam, this.playerteam.season)">
+                                <mat-option value="">{{ "FORM.FIELD.SELECT.TEAM" | translate}}</mat-option>
+                                <mat-option *ngFor="let item of teams" [value]="item.id">
+                                    {{ item.nickname }}
+                                </mat-option>
+                            </mat-select>
+                            <small *ngIf="this.forma.controls['equipo'].invalid && this.forma.controls['equipo'].touched" class="form-text text-danger">{{ "FORM.ERROR.TEAM" | translate}}</small>
+                        </mat-form-field>
+                        <mat-action-row>
+                            <button mat-button color="warn" (click)="prevStep()">{{"FORM.FIELD.PREV" | translate }}</button>
+                            <button mat-button color="primary" (click)="nextStep()">{{ "FORM.FIELD.PLAYER" | translate}}</button>
+                        </mat-action-row>
+                    </mat-expansion-panel>
+
+                    <mat-expansion-panel [expanded]="step === 2" (opened)="setStep(2)" hideToggle>
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>
+                                {{"FORM.FIELD.PLAYER" | translate }}
+                            </mat-panel-title>
+                            <mat-panel-description>
+                                {{ this.jugador.name }} {{ this.jugador.surname}}
+                            </mat-panel-description>
+                        </mat-expansion-panel-header>
+                        <div class="row">
+                            <div class="col">
+                                <mat-form-field appearance="fill">
+                                    <mat-select class="form-control" formControlName="player" [disabled]="players.length === 0" [(ngModel)]="this.playerteam.idPlayer" (selectionChange)="choosePlayer(this.playerteam.idPlayer)">
+                                        <mat-option value="">{{ "FORM.FIELD.SELECT.PLAYER" | translate}}</mat-option>
+                                        <mat-option *ngFor="let item of players" [value]="item.id">
+                                            {{ item.nickname }}
+                                        </mat-option>
+                                    </mat-select>
+                                    <small *ngIf="this.forma.controls['player'].invalid && this.forma.controls['player'].touched" class="form-text text-danger">{{ "FORM.ERROR.PLAYER" | translate}}</small>
+                                </mat-form-field>
+                            </div>
+                            <div class="col" [hidden]="this.jugador.id === 0">
+                                <img [src]="''+this.jugador.id | noimage:'jugadora'" matTooltip={{this.jugador.nickname}} class="img-fluid poster">
+                            </div>
+                        </div>
+                        <mat-action-row>
+                            <button mat-button color="warn" (click)="prevStep()">{{"FORM.FIELD.PREV" | translate }}</button>
+                            <button mat-button color="primary" (click)="nextStep()">{{ "FORM.FIELD.NUMBER" | translate}}</button>
+                        </mat-action-row>
+                    </mat-expansion-panel>
+
+                    <mat-expansion-panel [expanded]="step === 3" (opened)="setStep(3)" hideToggle>
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>
+                                {{"FORM.FIELD.NUMBER" | translate }}
+                            </mat-panel-title>
+                            <mat-panel-description>
+                                {{ this.playerteam.dorsal }}
+                            </mat-panel-description>
+                        </mat-expansion-panel-header>
+                        <mat-form-field appearance="fill">
+                            <mat-label *ngIf="!this.forma.controls['dorsal'].invalid || !this.forma.controls['dorsal'].touched">{{"FORM.FIELD.NUMBER" | translate }}</mat-label>
+                            <mat-label *ngIf="this.forma.controls['dorsal'].invalid && this.forma.controls['dorsal'].touched" class="form-text text-danger">{{ "FORM.ERROR.DORSAL" | translate}}</mat-label>
+                            <input matInput type="number" min="0" max="99" maxlength="2" formControlName="dorsal" (keyup)="chooseNumber()">
+                        </mat-form-field>
+                        <!-- #docregion action-bar -->
+                        <mat-action-row>
+                            <button mat-raised-button color="warn" (click)="prevStep()">{{"FORM.FIELD.PREV" | translate }}</button>
+                            <button mat-raised-button color="primary" (click)="guardar()">{{"FORM.FIELD.SAVE" | translate }}</button>
+                        </mat-action-row>
+                    </mat-expansion-panel>
+
+                </mat-accordion>
+            </form>
+        </div>
+        <div class="col-md-8 mt-5">
+            <div class="row" [hidden]="playersTeam.length === 0">
+                <div class="col" valign="middle" align="center">
+                    <h1>{{ team.name }}</h1>
+                    <img [src]="''+team.urlpic | noimage:'escudo'" class="img-fluid poster">
+                </div>
+            </div>
+            <div class="row row-cols-auto">
+                <div class="col animate__animated animate__fadeIn" *ngFor="let item of playersTeam">
+
+                    <img [src]="''+item.id | noimage:'jugadora'" matTooltip={{item.nickname}} class="img-fluid poster">
+                    <div>
+                        <p class="p">{{ item.dorsal }}. {{ item.nickname }} - ({{ item.position }})</p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+</div>

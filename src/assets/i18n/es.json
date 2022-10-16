@@ -1,0 +1,144 @@
+{
+    "HOME": {
+        "TITLE": "FUTBOL FEMENINO",
+        "EXPLANATION": "Tu aplicación para disfrutar del futbol femenino"
+    },
+    "MENU": {
+
+        "HOME": "INICIO",
+        "DATA": "DATOS",
+        "DATACENTER": "DATOS ADM.",
+        "PLAYERS": "JUGADORAS",
+        "CLUBS": "EQUIPOS",
+        "SQUADS": "PLANTILLAS",
+        "COMPETITIONS": "COMPETICIONES",
+        "REFEREES": "ÁRBITRAS",
+        "MATCHDAY": "PARTIDO",
+        "LOGIN": "ACCEDER",
+        "LOGOUT": "CERRAR SESIÓN",
+        "REGISTER": "REGISTRARSE",
+        "TITLE": "TIKITAKAS by LAIA2K11",
+        "VIDEOS": "VIDEOS",
+        "NEWS": "NOTICIAS",
+        "PICTURES": "IMÁGENES"
+    },
+
+    "MATCHDAY": {
+        "TITLE": "DIA DE PARTIDO",
+        "COMPETITION": "COMPETICIÓN",
+        "SELECT.TEAMS": "SELECCIONAR EQUIPO",
+        "SELECT.SQUADS": "ESCOGER PLANTILLA",
+        "SELECT.TEAM.LOCAL": "SELECCIONAR EQUIPO LOCAL",
+        "SELECT.TEAM.VISITOR": "SELECCIONAR EQUIPO VISITANTE",
+        "READY.MATCH": "¡PREPARADOS!",
+        "TEAM": "EQUIPO",
+        "STRATEGY": "ESTRATEGIA",
+        "SEASON": "TEMPORADA",
+        "TEAM.LOCAL": "EQUIPO LOCAL",
+        "TEAM.VISITOR": "EQUIPO VISITANTE",
+        "CONVOCADOS": "CONVOCATORIA",
+        "PLANTILLA": "PLANTILLA"
+    },
+
+    "FORM": {
+        "TITLE": {
+            "REFEREE": "ÁRBITRA",
+            "PLAYER": "JUGADORA",
+            "SQUAD": "PLANTILLA",
+            "CLUB": "EQUIPO",
+            "COMPETITION": "COMPETICIÓN"
+        },
+        "FIELD": {
+            "SEARCH": "INTRODUZCA AQUÍ LA CADENA DE BÚSQUEDA",
+            "NEW": "NUEVO",
+            "SAVE": "REGISTRAR",
+            "NAME": "NOMBRE",
+            "COUNTRY": "PAÍS",
+            "SELECT.COUNTRY": "Seleccionar país",
+            "ALIAS": "ALIAS",
+
+            "HEAD.PLAYER": "FICHA JUGADORA",
+            "SURNAME": "APELLIDOS",
+            "BIRTHDATE": "NACIMIENTO",
+            "POSITION": "POSICIÓN",
+            "SELECT.POSITION": "Seleccionar posición",
+            "VALORATION": "PUNTUACIÓN",
+            "SPEED": "VELOCIDAD",
+            "RESISTENCY": "RESISTENCIA",
+            "AIRDEFENSE": "DEF.AEREA",
+            "STRATEGYDEF": "DEF.ESTRATEGIA",
+            "AGRESIVITY": "AGRESIVIDAD",
+            "ANTICIPATION": "ANTICIPACIÓN",
+            "GAMEVIEW": "VISIÓN JUEGO",
+            "HEAD": "CABEZA",
+            "DRIBBLING": "REGATE",
+            "PASS": "PASES",
+            "HIT": "REMATE",
+            "FOULS": "ÉXITO FALTAS",
+            "PENALTYS": "ÉXITO PENALTYS",
+            "GOALKEEPER": "PORTERO",
+
+            "HEAD.TEAM": "FICHA EQUIPO",
+            "AVERAGE": "AVERAGE",
+            "SHIELD": "ESCUDO",
+            "SHIRT": "CAMISETA",
+            "ESTABLISHED": "FUNDACIÓN",
+
+            "HEAD.COMPETITION": "FICHA COMPETICIÓN",
+            "ASSOCIATION": "FEDERACIÓN",
+            "COMPETITION": "COMPETICIÓN",
+            "PICTURE": "IMAGEN",
+
+            "HEAD.SQUADS": "FICHA PLANTILLA",
+            "SEASON": "TEMPORADA",
+            "TEXT.SELECT.SEASON": "Temporada de la plantilla",
+            "SELECT.SEASON": "Seleccionar temporada",
+            "TEAM": "EQUIPO",
+            "TEXT.SELECT.TEAM": "Equipo de la plantilla",
+            "SELECT.TEAM": "Seleccionar equipo",
+            "PLAYER": "JUGADORA",
+            "TEXT.SELECT.PLAYER": "Nueva jugadora de la plantilla",
+            "SELECT.PLAYER": "Seleccionar jugadora",
+            "NUMBER": "DORSAL",
+            "TEXT.SELECT.NUMBER": "Dorsal de la jugadora de la plantilla",
+            "SQUAD": "PLANTILLA",
+            "PREV": "ANTERIOR",
+            "DELETE": "BORRAR",
+
+            "HEAD.REFEREE": "FICHA ÁRBITRA",
+            "BRAVERY": "VALENTÍA",
+            "CARD": "TARJETAS",
+            "HOMER": "CASERA"
+
+
+        },
+        "ERROR": {
+            "NAME": "INTRODUCIR UN NOMBRE",
+            "SURNAME": "INTRODUCIR UN APELLIDO",
+            "ALIAS": "INTRODUCIR UN ALIAS",
+            "POSICION": "SELECCIONAR POSICIÓN",
+            "ASSOCIATION": "INTRODUCIR FEDERACIÓN",
+            "ESTABLISHED": "INTRODUCIR UNA FECHA DE FUNDACIÓN",
+            "BIRTHDATE": "INTRODUCIR UNA FECHA DE NACIMIENTO",
+            "POSITION": "INTRODUCIR POSICIÓN EN EL CAMPO",
+            "COUNTRY": "SELECCIONAR UN PAÍS",
+            "SEASON": "SELECCIONAR UNA TEMPORADA",
+            "TEAM": "SELECCIONAR UN EQUIPO",
+            "PLAYER": "SELECCIONAR UNA JUGADORA",
+            "DORSAL": "INTRODUCIR DORSAL JUGADORA",
+            "MESSAGE": "SE HA PRODUCIDO UN ERROR",
+            "DATA": "REVISAR LOS DATOS DEL FORMULARIO"
+
+        },
+
+        "OK": {
+            "MESSAGE": "REGISTRO INTRODUCIDO CORRECTAMENTE",
+            "MESSAGEEDIT": "REGISTRO MODIFICADO CORRECTAMENTE",
+            "DONE": "¡HECHO!",
+            "MESSAGEDEL": "REGISTRO ELIMINADO",
+            "CONTINUE.TEAM": "¿SEGUIMOS CON EL MISMO EQUIPO?",
+            "CLEAN": "LIMPIAR FORMULARIO"
+
+        }
+    }
+}

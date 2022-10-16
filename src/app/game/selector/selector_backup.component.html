@@ -1,0 +1,98 @@
+<mat-card>
+    <div class="body">
+        <table>
+            <tr>
+                <td width="40%" align="left">
+                    <div [ngStyle]="{'color':this.colorLocal}">
+                        <h4 class="display-5" align='center'>{{ 'MATCHDAY.TEAM.LOCAL' | translate }}</h4>
+                    </div>
+                </td>
+                <td width="20%"></td>
+                <td width="40%" align="left">
+                    <div [ngStyle]="{'color':this.colorVisitor}">
+                        <h4 class="display-5" align='center'>{{ 'MATCHDAY.TEAM.VISITOR' | translate }}</h4>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td width="40%">
+                    <div [ngStyle]="{'color':this.colorLocal}">
+                        <table>
+                            <tr>
+                                <td width="50%" align="left">
+                                    <label for="seasonLocal">{{ 'MATCHDAY.SEASON' | translate }}</label>
+                                </td>
+                                <td width="50%" align="right">
+                                    <select name="seasonLocal" [(ngModel)]="this.seasonLocal" [ngStyle]="{'background-color':this.colorBack}" [style]=" {'color':this.colorLocal}" style='width:"100%"'>
+                                <option  [value]="item.id" *ngFor="let item of seasons">{{ item.nombre }}</option>
+                            </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="50%" align="left">
+                                    <label for="local">{{ 'MATCHDAY.TEAM' | translate }}</label>
+                                </td>
+                                <td width="50%" align="right">
+                                    <select name="local" [(ngModel)]="this.local.id" [ngStyle]="{'background-color':this.colorBack}" [style]=" {'color':this.colorLocal}" style='width:"100%"' (blur)="comunicarEquipoLocal(this.local.id, this.seasonLocal)">
+                                <option  [value]="item.id" *ngFor="let item of this.teams">{{ item.nickname }}</option>
+                            </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="50%" align="left">
+                                    <label for="local">{{ 'MATCHDAY.STRATEGY' | translate }}</label>
+                                </td>
+                                <td width="50%" align="right">
+                                    <select name="estrategial" [(ngModel)]=estrategial [ngStyle]="{'background-color':this.colorBack}" [style]=" {'color':this.colorLocal}" style='width:"100%"' (selectedIndex)=estrategial (blur)="comunicarEstrategiaLocal(this.estrategial)">
+                                    <option [ngValue]="item" *ngFor="let item of estrategia">{{item}}</option> 
+                                </select>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </td>
+                <td width="20%"></td>
+                <td width="40%">
+                    <div [ngStyle]="{'color':this.colorVisitor}">
+                        <table>
+                            <tr>
+                                <td width="50%" align="left">
+                                    <label for="seasonVisitor">{{ 'MATCHDAY.SEASON' | translate }}</label>
+                                </td>
+                                <td width="50%" align="right">
+                                    <select name="seasonVisitor" [(ngModel)]="this.seasonVisitor" [ngStyle]="{'background-color':this.colorBack}" style='width:"100%"' [style]=" {'color':this.colorVisitor}">
+                                <option  [value]="item.id" *ngFor="let item of seasons">{{ item.nombre }}</option>
+                            </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="50%" align="left">
+                                    <label for="local">{{ 'MATCHDAY.TEAM' | translate }}</label>
+                                </td>
+                                <td width="50%" align="right">
+                                    <select name="visitante" [(ngModel)]="this.visitante.id" [ngStyle]="{'background-color':this.colorBack}" [style]=" {'color':this.colorVisitor}" style='width:"100%"' (blur)="comunicarEquipoVisitante(this.visitante.id, this.seasonVisitor)">
+                                <option  [value]="item.id" *ngFor="let item of this.teams">{{ item.nickname }}</option>
+                            </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="50%" align="left">
+                                    <label for="estrategiav">{{ 'MATCHDAY.STRATEGY' | translate }}</label>
+                                </td>
+                                <td width="50%" align="right">
+                                    <select name="estrategiav" [(ngModel)]="estrategiav" [ngStyle]="{'background-color':this.colorBack}" [style]=" {'color':this.colorVisitor}" style='width:"100%"' (selectedIndex)="estrategiav" (blur)="comunicarEstrategiaLocal(this.estrategiav)">
+                                    <option [ngValue]="item" *ngFor="let item of estrategia">{{item}}</option>
+                                </select>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </td>
+            </tr>
+
+        </table>
+        <table align="center">
+            <button mat-button color="primary" (click)="next()">{{ 'MATCHDAY.SELECT.SQUADS' | translate }}</button>
+        </table>
+    </div>
+</mat-card>

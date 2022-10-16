@@ -1,0 +1,125 @@
+<!--
+<p-card>
+    <ng-template pTemplate="title">FICHA DE CLUB</ng-template>
+    <ng-template pTemplate="content">
+        <table>
+            <tr>
+                <td width="20%"></td>
+                <td width="40%">
+                    <table>
+                        <tr>
+                            <td>
+                                NOMBRE DEL CLUB
+                            </td>
+                            <td>
+                                <input #name type="text" [(ngModel)]="this.equipo.name" size='50'>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                SOBRENOMBRE
+                            </td>
+                            <td>
+                                <input #nickname type="text" [(ngModel)]="this.equipo.nickname" size='50'>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                FUNDACIÓN
+                            </td>
+                            <td>
+                                <input #date type="date" [(ngModel)]="this.equipo.established" data-date-format="YYYY">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                PAIS
+                            </td>
+                            <td>
+                                <select name="country" [(ngModel)]="this.equipo.country">
+                                    <option [value]="item.cca2" *ngFor="let item of datosCountries">{{item.translations.spa.common}}</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>ESCUDO</td>
+                            <td><input #urlpic type="text" [(ngModel)]="this.equipo.urlpic" size='50'></td>
+                        </tr>
+                        <tr>
+                            <td>CAMISETA</td>
+                            <td><input #urlshirt type="text" [(ngModel)]="this.equipo.urlshirt" size='50'></td>
+                        </tr>
+                    </table>
+                </td>
+                <td width="5%"></td>
+                <td width="15%">
+                    <img [src]="this.equipo.urlpic | noimage:'escudo'" class="img-thumb" alt="" width="100%" height="100%">
+                </td>
+                <td width="5%"></td>
+                <td width="10%">
+                    <img [src]="this.equipo.urlshirt | noimage:'camiseta'" class="img-thumb" alt="" width="100%" height="100%">
+                </td>
+                <td width="5%"></td>
+
+            </tr>
+        </table>
+        <div class="p-grid p-nogutter p-justify-end">
+            <p></p>
+        </div>
+
+        <div class="p-grid p-nogutter p-justify-end">
+            <table>
+                <tr>
+                    <td width="20%"></td>
+                    <td width="40%">
+                        <table>
+                            <tr>
+                                <td width='40%'>
+                                    <div class="p-grid p-nogutter p-justify-end">
+                                        <p-button label="NUEVO" (onClick)="ngOnInit()" icon="pi pi-angle-left"></p-button>
+                                    </div>
+                                </td>
+                                <td width='20%'></td>
+                                <td width='40%'>
+                                    <div class="p-grid p-nogutter p-justify-end">
+                                        <p-button label="REGISTRAR" (onClick)="enviar()" icon="pi pi-angle-right"></p-button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+
+                        <td width='40%'></td>
+                </tr>
+            </table>
+        </div>
+        <div class="p-grid p-nogutter p-justify-end">
+            <p></p>
+        </div>
+        <p-table [value]="datosTeams" selectionMode="single" [(selection)]="equipo" dataKey="id" [paginator]="true" [rows]="10" [showCurrentPageReport]="true" currentPageReportTemplate="Mostrando {first} a {last} de {totalEquipos} registros" [rowsPerPageOptions]="[10,20,50]"
+            [totalRecords]="totalEquipos">
+            <ng-template pTemplate="caption">LISTADO DE EQUIPOS</ng-template>
+            <ng-template pTemplate="header" let-columns>
+                <tr>
+                    <th>NOMBRE</th>
+                    <th>SOBRENOMBRE</th>
+                    <th>PAÍS</th>
+                    <th>FUNDACIÓN</th>
+                    <th>ESCUDO</th>
+                    <th>CAMISETA</th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-equipo>
+                <tr [pSelectableRow]="equipo" class="bootstrap4-light-purple">
+                    <td>{{ equipo.name }}</td>
+                    <td>{{ equipo.nickname }}</td>
+                    <td>{{ equipo.country | paises:datosCountries }}</td>
+                    <td>{{ equipo.established | date: 'yyyy' }}</td>
+                    <td><img [src]="equipo.urlpic | noimage:'escudo'" class="img-thumb" alt="" width="50" height="50"></td>
+                    <td><img [src]="equipo.urlshirt | noimage:'camiseta'" class="img-thumb" alt="" width="50" height="60"></td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </ng-template>
+</p-card>
+<p-toast [style]="{marginTop: '80px'}" position="top-center"></p-toast>
+-->

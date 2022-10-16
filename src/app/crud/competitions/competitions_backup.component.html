@@ -1,0 +1,102 @@
+<!--
+<p-card>
+    <ng-template pTemplate="title">FICHA DE COMPETICIÓN</ng-template>
+    <ng-template pTemplate="content">
+        <table>
+            <tr>
+                <td>
+                    <table>
+                        <tr>
+                            <td>
+                                NOMBRE DE LA COMPETICIÓN
+                            </td>
+                            <td>
+                                <input #name type="text" [(ngModel)]="this.competition.name" size=50>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                FEDERACIÓN
+                            </td>
+                            <td>
+                                <input #nickname type="text" [(ngModel)]="this.competition.association" size=50>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                AÑO DE FUNDACIÓN
+                            </td>
+                            <td>
+                                <input #date type="date" [(ngModel)]="this.competition.established">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                PAIS
+                            </td>
+                            <td>
+                                <select name="country" [(ngModel)]="this.competition.country">
+                                    <option [value]="item.cca2" *ngFor="let item of datosCountries">{{item.translations.spa.common}}</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>ESCUDO</td>
+                            <td><input #urlpic type="text" [(ngModel)]="this.competition.urlpic"></td>
+                        </tr>
+                    </table>
+                </td>
+                <td width="5%"></td>
+                <td width="15%">
+                    <img [src]="this.competition.urlpic | noimage:'logo'" class="img-thumb" alt="" width="100%" height="100%">
+                </td>
+                <td width="20%"></td>
+            </tr>
+        </table>
+        <div class="p-grid p-nogutter p-justify-end">
+            <table>
+                <tr>
+                    <td width="20%"></td>
+                    <td width='15%'>
+                        <div class="p-grid p-nogutter p-justify-end">
+                            <p-button label="NUEVO" (onClick)="ngOnInit()" icon="pi pi-angle-left"></p-button>
+                        </div>
+                    </td>
+                    <td width='10%'></td>
+                    <td width='15%'>
+                        <div class="p-grid p-nogutter p-justify-end">
+                            <p-button label="REGISTRAR" (onClick)="enviar()" icon="pi pi-angle-right"></p-button>
+                        </div>
+                    </td>
+                    <td width='40%'></td>
+                </tr>
+            </table>
+        </div>
+
+        <p-table [value]="datosCompeticiones" selectionMode="single" [(selection)]="competition" dataKey="id" [paginator]="true" [rows]="10" [showCurrentPageReport]="true" currentPageReportTemplate="Mostrando {first} a {last} de {totalCompeticiones} registros"
+            [rowsPerPageOptions]="[10,20,50]" [totalRecords]="totalCompeticiones">
+            <ng-template pTemplate="caption">LISTADO DE COMPETICIONES</ng-template>
+            <ng-template pTemplate="header" let-columns>
+                <tr>
+                    <th>NOMBRE</th>
+                    <th>FEDERACIÓN</th>
+                    <th>PAÍS</th>
+                    <th>FUNDACIÓN</th>
+                    <th>LOGO</th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-competition>
+                <tr [pSelectableRow]="competition" class="bootstrap4-light-purple">
+                    <td>{{ competition.name }}</td>
+                    <td>{{ competition.association }}</td>
+                    <td>{{ competition.country | paises:datosCountries }}</td>
+                    <td>{{ competition.established | date: 'yyyy' }}</td>
+                    <td><img [src]="competition.urlpic | noimage:'logo'" class="img-thumb" alt="" width="50" height="50"></td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </ng-template>
+</p-card>
+<p-toast [style]="{marginTop: '80px'}" position="top-center"></p-toast>
+
+-->

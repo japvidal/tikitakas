@@ -1,0 +1,199 @@
+<div class="container-fluid">
+    <div class="row" width="100%">
+
+        <div class="col-md-6 mt-5">
+            <input name="txtBuscar" [(ngModel)]="buscar" (keyup)="buscador( )" class="form-control mr-2 mb-3" type="search" placeholder='{{ "FORM.FIELD.SEARCH" | translate}}' aria-label="Search">
+            <cdk-virtual-scroll-viewport appendOnly itemSize="30" class="viewport">
+                <div class="row row-cols-auto">
+                    <div class="col-md-4 animate__animated animate__fadeIn" *ngFor="let item of datosPlayers">
+                        <img [src]="''+item.id | noimage:'jugadora'" matTooltip={{this.item.id}} (click)="selecciona(this.item)" class="img-fluid poster">
+                        <div>
+                            <p (click)="selecciona(this.item)" class="p">{{ item.nickname }}</p>
+                        </div>
+                    </div>
+                </div>
+            </cdk-virtual-scroll-viewport>
+        </div>
+
+
+        <div class="col-md-6  mt-5">
+            <form autocomplete="off" [formGroup]="forma">
+                <div class="row">
+                    <div class="col-md-7">
+                        <div class="form-group row">
+                            <label class="col-md-3 col-form-label">{{ "FORM.FIELD.NAME" | translate}}</label>
+                            <div class="col-md-9">
+                                <input class="form-control" type="text" formControlName="nombre" placeholder='{{ "FORM.FIELD.NAME" | translate}}' [(ngModel)]="player.name" oninput="javascript:this.value=this.value.toUpperCase()">
+                                <small *ngIf="this.forma.controls['nombre'].invalid && this.forma.controls['nombre'].touched" class="form-text text-danger">{{ "FORM.ERROR.NAME" | translate}}</small>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-md-3 col-form-label">{{ "FORM.FIELD.SURNAME" | translate}}</label>
+                            <div class="col-md-9">
+                                <input class="form-control" type="text" formControlName="apellido" placeholder='{{ "FORM.FIELD.SURNAME" | translate}}' [(ngModel)]="player.surname" oninput="javascript:this.value=this.value.toUpperCase()">
+                                <small *ngIf="this.forma.controls['apellido'].invalid && this.forma.controls['apellido'].touched" class="form-text text-danger">{{ "FORM.ERROR.SURNAME" | translate}}</small>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-md-3 col-form-label">{{ "FORM.FIELD.ALIAS" | translate}}</label>
+                            <div class="col-md-9">
+                                <input class="form-control" type="text" formControlName="alias" placeholder='{{ "FORM.FIELD.ALIAS" | translate}}' [(ngModel)]="player.nickname" oninput="javascript:this.value=this.value.toUpperCase()">
+                                <small *ngIf="this.forma.controls['alias'].invalid && this.forma.controls['alias'].touched" class="form-text text-danger">{{ "FORM.ERROR.ALIAS" | translate}}</small>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-md-3 col-form-label">{{ "FORM.FIELD.BIRTHDATE" | translate}}</label>
+                            <div class="col-md-9">
+                                <input class="form-control" formControlName="nacimiento" type="date" [(ngModel)]="player.birthdate">
+                                <small *ngIf="this.forma.controls['nacimiento'].invalid && this.forma.controls['nacimiento'].touched" class="form-text text-danger">{{ "FORM.ERROR.BIRTHDATE" | translate}}</small>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-md-3 col-form-label">{{ "FORM.FIELD.POSITION" | translate}}</label>
+                            <div class="col-md-9">
+                                <mat-select class="form-control" formControlName="posicion" [disabled]="datosPosiciones.length === 0" [(ngModel)]="player.position">
+                                    <mat-option value="">{{ "FORM.FIELD.SELECT.POSITION" | translate}}</mat-option>
+                                    <mat-option *ngFor="let item of datosPosiciones" [value]="item.id">
+                                        {{ item.id | posiciones:datosPosiciones:'es' }}
+                                    </mat-option>
+                                </mat-select>
+                                <small *ngIf="this.forma.controls['posicion'].invalid && this.forma.controls['posicion'].touched" class="form-text text-danger">{{ "FORM.ERROR.POSITION" | translate}}</small>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-md-3 col-form-label">{{ "FORM.FIELD.COUNTRY" | translate}}</label>
+                            <div class="col-md-9">
+                                <mat-select class="form-control" formControlName="pais" [disabled]="datosCountries.length === 0" [(ngModel)]="player.country">
+                                    <mat-option value="">{{ "FORM.FIELD.SELECT.COUNTRY" | translate}}</mat-option>
+                                    <mat-option *ngFor="let pais of datosCountries" [value]="pais.cca2">
+                                        {{pais.translations.spa.common}}
+                                    </mat-option>
+                                </mat-select>
+                                <small *ngIf="this.forma.controls['pais'].invalid && this.forma.controls['pais'].touched" class="form-text text-danger">{{ "FORM.ERROR.COUNTRY" | translate}}</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 mr-5" valign="middle" [hidden]="player == null || player.id === 0">
+                        <img [src]="''+player.id | noimage:'jugadora'" matTooltip={{player.id}} class="img-fluid tarjeta">
+                    </div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col">
+                        <div class="form-group row">
+                            <label class="col-md-4 col-form-label">{{ "FORM.FIELD.SPEED" | translate}}</label>
+                            <div class="col-md-6">
+                                <mat-slider color="primary" thumbLabel min="0" max="100" step="5" value="0" formControlName="velocidad" [(ngModel)]="player.velocidad" (change)="avg()"></mat-slider>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-md-4 col-form-label">{{ "FORM.FIELD.RESISTENCY" | translate}}</label>
+                            <div class="col-md-6">
+                                <mat-slider color="primary" thumbLabel min="0" max="100" step="5" value="0" formControlName="resistencia" [(ngModel)]="player.resistencia" (change)="avg()"></mat-slider>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-md-4 col-form-label">{{ "FORM.FIELD.AIRDEFENSE" | translate}}</label>
+                            <div class="col-md-6">
+                                <mat-slider color="primary" thumbLabel min="0" max="100" step="5" value="0" formControlName="defaerea" [(ngModel)]="player.defaerea" (change)="avg()"></mat-slider>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-md-4 col-form-label">{{ "FORM.FIELD.STRATEGYDEF" | translate}}</label>
+                            <div class="col-md-6">
+                                <mat-slider color="primary" thumbLabel min="0" max="100" step="5" value="0" formControlName="defestrategia" [(ngModel)]="player.defestrategia" (change)="avg()"></mat-slider>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-md-4 col-form-label">{{ "FORM.FIELD.AGRESIVITY" | translate}}</label>
+                            <div class="col-md-6">
+                                <mat-slider color="primary" thumbLabel min="0" max="100" step="5" value="0" formControlName="defagresividad" [(ngModel)]="player.defagresividad" (change)="avg()"></mat-slider>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-md-4 col-form-label">{{ "FORM.FIELD.ANTICIPATION" | translate}}</label>
+                            <div class="col-md-6">
+                                <mat-slider color="primary" thumbLabel min="0" max="100" step="5" value="0" formControlName="defanticipacion" [(ngModel)]="player.defanticipacion" (change)="avg()"></mat-slider>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-md-4 col-form-label">{{ "FORM.FIELD.GOALKEEPER" | translate}}</label>
+                            <div class="col-md-6">
+                                <mat-slider color="primary" thumbLabel min="0" max="100" step="5" value="0" formControlName="portero" [(ngModel)]="player.portero" (change)="avg()"></mat-slider>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col">
+                        <div class="form-group row">
+                            <label class="col-md-4 col-form-label">{{ "FORM.FIELD.GAMEVIEW" | translate}}</label>
+                            <div class="col-md-6">
+                                <mat-slider color="primary" thumbLabel min="0" max="100" step="5" value="0" formControlName="visionjuego" [(ngModel)]="player.visionjuego" (change)="avg()"></mat-slider>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-md-4 col-form-label">{{ "FORM.FIELD.HEAD" | translate}}</label>
+                            <div class="col-md-6">
+                                <mat-slider color="primary" thumbLabel min="0" max="100" step="5" value="0" formControlName="ataqueaereo" [(ngModel)]="player.ataqueaereo" (change)="avg()"></mat-slider>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-md-4 col-form-label">{{ "FORM.FIELD.DRIBBLING" | translate}}</label>
+                            <div class="col-md-6">
+                                <mat-slider color="primary" thumbLabel min="0" max="100" step="5" value="0" formControlName="ataqueregate" [(ngModel)]="player.ataqueregate" (change)="avg()"></mat-slider>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-md-4 col-form-label">{{ "FORM.FIELD.PASS" | translate}}</label>
+                            <div class="col-md-6">
+                                <mat-slider color="primary" thumbLabel min="0" max="100" step="5" value="0" formControlName="ataquepases" [(ngModel)]="player.ataquepases" (change)="avg()"></mat-slider>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-md-4 col-form-label">{{ "FORM.FIELD.HIT" | translate}}</label>
+                            <div class="col-md-6">
+                                <mat-slider color="primary" thumbLabel min="0" max="100" step="5" value="0" formControlName="ataqueremate" [(ngModel)]="player.ataqueremate" (change)="avg()"></mat-slider>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-md-4 col-form-label">{{ "FORM.FIELD.FOULS" | translate}}</label>
+                            <div class="col-md-6">
+                                <mat-slider color="primary" thumbLabel min="0" max="100" step="5" value="0" formControlName="ataquefaltas" [(ngModel)]="player.ataquefaltas" (change)="avg()"></mat-slider>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-md-4 col-form-label">{{ "FORM.FIELD.PENALTYS" | translate}}</label>
+                            <div class="col-md-6">
+                                <mat-slider color="primary" thumbLabel min="0" max="100" step="5" value="0" formControlName="ataquepenaltys" [(ngModel)]="player.ataquepenaltys" (change)="avg()"></mat-slider>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row mt-5">
+                    <div class="col"></div>
+                    <div class="input-group col">
+                        <button mat-raised-button color="primary" (click)="guardar()">
+                            {{ "FORM.FIELD.SAVE" | translate}}
+                        </button>
+                    </div>
+                    <div class="col">
+                        <h3 class="col-form-label">{{ "FORM.FIELD.AVERAGE" | translate}}:{{this.player.totalmedia | number:'1.0-0'}}</h3>
+                    </div>
+                    <div class="input-group col">
+                        <button mat-raised-button color="primary" (click)="reset()">
+                            {{ "FORM.FIELD.NEW" | translate}}
+                        </button>
+                    </div>
+                    <div class="col"> </div>
+                    <div class="row">
+                        <div class="col mb-5"> </div>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>

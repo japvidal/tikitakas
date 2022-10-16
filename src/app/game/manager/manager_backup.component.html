@@ -1,0 +1,238 @@
+<div class="container" [ngStyle]="{'background-color':'green'}">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col" width="14%">
+                <h3>{{this.local.goles}}</h3>
+            </div>
+            <div class="col" align='left' width="14%">
+                <img [src]="this.local.urlpic | noimage:'escudo'" class="img-thumbnail" alt="" width="50%" height="50%">
+            </div>
+            <div class="col-3" [ngStyle]="{'color':'purple'}" width="28%" valign='middle'>
+                <h5>{{this.local.name}}</h5>
+            </div>
+            <div class="col" width="14%"><img [src]="this.local.urlshirt | noimage:'camiseta'" class="img-thumbnail" alt="" width="50%" height="50%"></div>
+            <div class="col" width="14%"></div>
+            <div class="col" width="16%"></div>
+        </div>
+    </div>
+    <div class="container-fluid" [ngStyle]="{'color':'white'}">
+        <div class="row" align='center'>
+            <div class="col" width="14%"></div>
+            <div class="col" width="14%"></div>
+            <div class="col" width="14%"></div>
+            <div class="col" width="14%"></div>
+            <div class="col" width="14%"></div>
+            <div class="col" width="14%" align='left' [ngStyle]="{'background-color':'black'}">{{this.local18.dorsal}} {{this.local18.nickname}}</div>
+            <div class="col" width="16%" [ngStyle]="{'background-color':'black'}">
+                <select name="reservaLocal1" (blur)="sustitucionLocal(this.local18, $event )">
+                    <option [value]="item" *ngFor="let item of this.equipoLocal">{{ item.nickname }}</option> 
+                </select>
+            </div>
+        </div>
+        <div class="row" align='center'>
+            <div class="col" width="14%"></div>
+            <div class="col" width="14%"></div>
+            <div class="col" width="14%">{{this.local1.dorsal}} {{this.local1.nickname}}</div>
+            <div class="col" width="14%"></div>
+            <div class="col" width="14%"></div>
+            <div class="col" width="14%" align='left' [ngStyle]="{'background-color':'black'}">{{this.local19.dorsal}} {{this.local19.nickname}}</div>
+            <div class="col" width="16%" [ngStyle]="{'background-color':'black'}">
+                <select name="reservaLocal2" (blur)="sustitucionLocal(this.local19, $event )">
+                    <option [value]="item" *ngFor="let item of this.equipoLocal">{{ item.nickname }}</option> 
+                </select>
+            </div>
+        </div>
+        <div class="row" align='center'>
+            <div class="col" width="14%">{{this.local2.dorsal}} {{this.local2.nickname}}</div>
+            <div class="col" width="14%">{{this.local3.dorsal}} {{this.local3.nickname}}</div>
+            <div class="col" width="14%">{{this.local4.dorsal}} {{this.local4.nickname}}</div>
+            <div class="col" width="14%">{{this.local5.dorsal}} {{this.local5.nickname}}</div>
+            <div class="col" width="14%">{{this.local6.dorsal}} {{this.local6.nickname}}</div>
+            <div class="col" width="14%" align='left' [ngStyle]="{'background-color':'black'}">{{this.local20.dorsal}} {{this.local20.nickname}}</div>
+            <div class="col" width="16%" [ngStyle]="{'background-color':'black'}">
+                <select name="reservaLocal3" (blur)="sustitucionLocal(this.local20, $event )">
+                    <option [value]="item" *ngFor="let item of this.equipoLocal">{{ item.nickname }}</option> 
+                </select>
+            </div>
+        </div>
+        <div class="row" align='center'>
+            <div class="col" width="14%"></div>
+            <div class="col" width="14%"></div>
+            <div class="col" width="14%">{{this.local7.dorsal}} {{this.local7.nickname}}</div>
+            <div class="col" width="14%"></div>
+            <div class="col" width="14%"></div>
+            <div class="col" width="14%" align='left' [ngStyle]="{'background-color':'black'}">{{this.local21.dorsal}} {{this.local21.nickname}}</div>
+            <div class="col" width="16%" [ngStyle]="{'background-color':'black'}">
+                <select name="reservaLocal4" (blur)="sustitucionLocal(this.local21, $event )">
+                    <option [value]="item" *ngFor="let item of this.equipoLocal">{{ item.nickname }}</option> 
+                </select>
+            </div>
+        </div>
+        <div class="row" align='center'>
+            <div class="col" width="14%">{{this.local8.dorsal}} {{this.local8.nickname}}</div>
+            <div class="col" width="14%">{{this.local9.dorsal}} {{this.local9.nickname}}</div>
+            <div class="col" width="14%">{{this.local10.dorsal}} {{this.local10.nickname}}</div>
+            <div class="col" width="14%">{{this.local11.dorsal}} {{this.local11.nickname}}</div>
+            <div class="col" width="14%">{{this.local12.dorsal}} {{this.local12.nickname}}</div>
+            <div class="col" width="14%" align='left' [ngStyle]="{'background-color':'black'}">{{this.local22.dorsal}} {{this.local22.nickname}}</div>
+            <div class="col" width="16%" [ngStyle]="{'background-color':'black'}">
+                <select name="reservaLocal5" (blur)="sustitucionLocal(this.local22, $event )">
+                    <option [value]="item" *ngFor="let item of this.equipoLocal">{{ item.nickname }}</option> 
+                </select>
+            </div>
+        </div>
+        <div class="row" align='center'>
+            <div class="col" width="14%"></div>
+            <div class="col" width="14%"></div>
+            <div class="col" width="14%">{{this.local13.dorsal}} {{this.local13.nickname}}</div>
+            <div class="col" width="14%"></div>
+            <div class="col" width="14%"></div>
+            <div class="col" width="14%" align='left' [ngStyle]="{'background-color':'black'}">{{this.local23.dorsal}} {{this.local23.nickname}}</div>
+            <div class="col" width="16%" [ngStyle]="{'background-color':'black'}">
+                <select name="reservaLocal6" (blur)="sustitucionLocal(this.local23, $event )">
+                    <option [value]="item" *ngFor="let item of this.equipoLocal">{{ item.nickname }}</option> 
+                </select>
+            </div>
+        </div>
+        <div class="row" align='center'>
+            <div class="col" width="14%">{{this.local14.dorsal}} {{this.local14.nickname}}</div>
+            <div class="col" width="14%"></div>
+            <div class="col" width="14%">{{this.local16.dorsal}} {{this.local16.nickname}}</div>
+            <div class="col" width="14%"></div>
+            <div class="col" width="14%">{{this.local17.dorsal}} {{this.local17.nickname}}</div>
+            <div class="col" width="14%" align='left' [ngStyle]="{'background-color':'black'}">{{this.local24.dorsal}} {{this.local24.nickname}}</div>
+            <div class="col" width="16%" [ngStyle]="{'background-color':'black'}">
+                <select name="reservaLocal7" (blur)="sustitucionLocal(this.local24, $event )">
+                    <option [value]="item" *ngFor="let item of this.equipoLocal">{{ item.nickname }}</option> 
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid" [ngStyle]="{'color':'black'}">
+        <div class="row" align='left'>
+            <div class="col" width="100%"> ____________________________________________________ Arbitro: {{this.arbitro.name}} {{this.arbitro.surname}} ({{ arbitro.country | paises:datosCountries }}) ____________________________________________________ </div>
+        </div>
+    </div>
+    <div class="container-fluid" [ngStyle]="{'color':'white'}">
+        <div class="row" align='center'>
+            <div class="col" width="14%">{{this.visitante17.dorsal}} {{this.visitante17.nickname}}</div>
+            <div class="col" width="14%"></div>
+            <div class="col" width="14%">{{this.visitante16.dorsal}} {{this.visitante16.nickname}}</div>
+            <div class="col" width="14%"></div>
+            <div class="col" width="14%">{{this.visitante14.dorsal}} {{this.visitante14.nickname}}</div>
+            <div class="col" width="14%" align='left' [ngStyle]="{'background-color':'black'}">{{this.visitante24.dorsal}} {{this.visitante24.nickname}}</div>
+            <div class="col" width="16%" [ngStyle]="{'background-color':'black'}">
+                <select name="reservaVisitante7" (blur)="sustitucionVisitante(this.visitante24, $event )">
+                    <option [value]="item" *ngFor="let item of this.equipoVisitante">{{ item.nickname }}</option> 
+                </select>
+            </div>
+        </div>
+        <div class="row" align='center' [ngStyle]="{'color':'white'}">
+            <div class="col" width="14%"></div>
+            <div class="col" width="14%"></div>
+            <div class="col" width="14%">{{this.visitante13.dorsal}} {{this.visitante13.nickname}}</div>
+            <div class="col" width="14%"></div>
+            <div class="col" width="14%"></div>
+            <div class="col" width="14%" align='left' [ngStyle]="{'background-color':'black'}">{{this.visitante23.dorsal}} {{this.visitante23.nickname}}</div>
+            <div class="col" width="16%" [ngStyle]="{'background-color':'black'}">
+                <select name="reservaVisitante6" (blur)="sustitucionVisitante(this.visitante23, $event )">
+                    <option [value]="item" *ngFor="let item of this.equipoVisitante">{{ item.nickname }}</option> 
+                </select>
+            </div>
+        </div>
+        <div class="row" align='center'>
+            <div class="col" width="14%">{{this.visitante12.dorsal}} {{this.visitante12.nickname}}</div>
+            <div class="col" width="14%">{{this.visitante11.dorsal}} {{this.visitante11.nickname}}</div>
+            <div class="col" width="14%">{{this.visitante10.dorsal}} {{this.visitante10.nickname}}</div>
+            <div class="col" width="14%">{{this.visitante9.dorsal}} {{this.visitante9.nickname}}</div>
+            <div class="col" width="14%">{{this.visitante8.dorsal}} {{this.visitante8.nickname}}</div>
+            <div class="col" width="14%" align='left' [ngStyle]="{'background-color':'black'}">{{this.visitante22.dorsal}} {{this.visitante22.nickname}}</div>
+            <div class="col" width="16%" [ngStyle]="{'background-color':'black'}">
+                <select name="reservaVisitante5" (blur)="sustitucionVisitante(this.visitante22, $event )">
+                    <option [value]="item" *ngFor="let item of this.equipoVisitante">{{ item.nickname }}</option> 
+                </select>
+            </div>
+        </div>
+        <div class="row" align='center'>
+            <div class="col" width="14%"></div>
+            <div class="col" width="14%"></div>
+            <div class="col" width="14%">{{this.visitante7.dorsal}} {{this.visitante7.nickname}}</div>
+            <div class="col" width="14%"></div>
+            <div class="col" width="14%"></div>
+            <div class="col" width="14%" align='left' [ngStyle]="{'background-color':'black'}">{{this.visitante21.dorsal}} {{this.visitante21.nickname}}</div>
+            <div class="col" width="16%" [ngStyle]="{'background-color':'black'}">
+                <select name="reservaVisitante4" (blur)="sustitucionVisitante(this.visitante21, $event )">
+                    <option [value]="item" *ngFor="let item of this.equipoVisitante">{{ item.nickname }}</option> 
+                </select>
+            </div>
+        </div>
+        <div class="row" align='center'>
+            <div class="col" width="14%">{{this.visitante6.dorsal}} {{this.visitante6.nickname}}</div>
+            <div class="col" width="14%">{{this.visitante5.dorsal}} {{this.visitante5.nickname}}</div>
+            <div class="col" width="14%">{{this.visitante4.dorsal}} {{this.visitante4.nickname}}</div>
+            <div class="col" width="14%">{{this.visitante3.dorsal}} {{this.visitante3.nickname}}</div>
+            <div class="col" width="14%">{{this.visitante2.dorsal}} {{this.visitante2.nickname}}</div>
+            <div class="col" width="14%" align='left' [ngStyle]="{'background-color':'black'}">{{this.visitante20.dorsal}} {{this.visitante20.nickname}}</div>
+            <div class="col" width="16%" [ngStyle]="{'background-color':'black'}">
+                <select name="reservaVisitante3" (blur)="sustitucionVisitante(this.visitante20, $event )">
+                    <option [value]="item" *ngFor="let item of this.equipoVisitante">{{ item.nickname }}</option> 
+                </select>
+            </div>
+        </div>
+        <div class="row" align='center'>
+            <div class="col" width="14%"></div>
+            <div class="col" width="14%"></div>
+            <div class="col" width="14%">{{this.visitante1.dorsal}} {{this.visitante1.nickname}}</div>
+            <div class="col" width="14%"></div>
+            <div class="col" width="14%"></div>
+            <div class="col" width="14%" align='left' [ngStyle]="{'background-color':'black'}">{{this.visitante19.dorsal}} {{this.visitante19.nickname}}</div>
+            <div class="col" width="16%" [ngStyle]="{'background-color':'black'}">
+                <select name="reservaVisitante2" (blur)="sustitucionVisitante(this.visitante19, $event )">
+                    <option [value]="item" *ngFor="let item of this.equipoVisitante">{{ item.nickname }}</option> 
+                </select>
+            </div>
+        </div>
+        <div class="row" align='center'>
+            <div class="col" width="14%"></div>
+            <div class="col" width="14%"></div>
+            <div class="col" width="14%"></div>
+            <div class="col" width="14%"></div>
+            <div class="col" width="14%"></div>
+            <div class="col" width="14%" align='left' [ngStyle]="{'background-color':'black'}">{{this.visitante18.dorsal}} {{this.visitante18.nickname}}</div>
+            <div class="col" width="16%" [ngStyle]="{'background-color':'black'}">
+                <select name="reservaVisitante1" (blur)="sustitucionVisitante(this.visitante18, $event )">
+                    <option [value]="item" *ngFor="let item of this.equipoVisitante">{{ item.nickname }}</option> 
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col" width="14%">
+                <h3>{{this.local.goles}}</h3>
+            </div>
+            <div class="col" align='left' width="14%">
+                <img [src]="this.visitante.urlpic | noimage:'escudo'" class="img-thumbnail" alt="" width="50%" height="50%">
+            </div>
+            <div class="col-3" [ngStyle]="{'color':'purple'}" width="28%" valign='middle'>
+                <h5>{{this.visitante.name}}</h5>
+            </div>
+            <div class="col" width="14%"><img [src]="this.visitante.urlshirt | noimage:'camiseta'" class="img-thumbnail" alt="" width="50%" height="50%"></div>
+            <div class="col" width="14%"></div>
+            <div class="col" width="16%"></div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col" width="70%"></div>
+        <div class="col" width="30%"></div>
+    </div>
+    <div class="row">
+        <div class="col" align='right' width="70%"><button type="button" class="btn btn-outline-primary btn-block" (click)='start()'>START</button></div>
+        <div class="col" align='middle' width="30%" [ngStyle]="{'color':'purple'}">
+            <h3>{{this.local.goles}} - {{this.visitante.goles}}</h3>
+        </div>
+    </div>
+</div>

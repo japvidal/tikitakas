@@ -1,0 +1,104 @@
+<div class="container-fluid">
+    <div class="row" width="100%">
+        <div class="col-md-5  mt-5">
+            <input name="txtBuscar" [(ngModel)]="buscar" (keyup)="buscador( )" class="form-control mr-2" type="search" placeholder='{{ "FORM.FIELD.SEARCH" | translate}}' aria-label="Search">
+            <cdk-virtual-scroll-viewport appendOnly itemSize="30" class="viewport">
+                <div class="row row-cols-auto">
+                    <div class="col-md-4 animate__animated animate__fadeIn" *ngFor="let item of datosTeams">
+
+                        <img [src]="''+item.urlpic| noimage:'escudo'" matTooltip={{this.item.id}} (click)="selecciona(this.item)" class="img-fluid poster">
+                        <div>
+                            <p (click)="selecciona(this.item)" class="p">{{ item.name }}</p>
+                        </div>
+
+                    </div>
+                </div>
+            </cdk-virtual-scroll-viewport>
+        </div>
+        <div class="col-md-5 mt-5">
+            <form autocomplete="off" [formGroup]="forma">
+                <div>
+                    <div class="form-group row">
+                        <label class="col-3 col-form-label">{{ "FORM.FIELD.NAME" | translate}}</label>
+                        <div class="col-9">
+                            <input class="form-control" type="text" formControlName="nombre" placeholder='{{ "FORM.FIELD.NAME" | translate}}' [(ngModel)]="team.name" oninput="javascript:this.value=this.value.toUpperCase()">
+                            <small *ngIf="this.forma.controls['nombre'].invalid && this.forma.controls['nombre'].touched" class="form-text text-danger">{{ "FORM.ERROR.NAME" | translate}}</small>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-3 col-form-label">{{ "FORM.FIELD.ALIAS" | translate}}</label>
+                        <div class="col-9">
+
+                            <input class="form-control" type="text" formControlName="sobrenombre" placeholder='{{ "FORM.FIELD.ALIAS" | translate}}' [(ngModel)]="team.nickname" oninput="javascript:this.value=this.value.toUpperCase()">
+                            <small *ngIf="this.forma.controls['sobrenombre'].invalid && this.forma.controls['sobrenombre'].touched" class="form-text text-danger">{{ "FORM.ERROR.ALIAS" | translate}}</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-3 col-form-label">{{ "FORM.FIELD.COUNTRY" | translate}}</label>
+                    <div class="col-9">
+
+                        <mat-select class="form-control" formControlName="pais" [disabled]="datosCountries.length === 0" [(ngModel)]="team.country">
+                            <mat-option value="">{{ "FORM.FIELD.SELECT.COUNTRY" | translate}}</mat-option>
+                            <mat-option *ngFor="let pais of datosCountries" [value]="pais.cca2">
+                                {{pais.translations.spa.common}}
+                            </mat-option>
+                        </mat-select>
+                        <small *ngIf="this.forma.controls['pais'].invalid && this.forma.controls['pais'].touched" class="form-text text-danger">{{ "FORM.ERROR.COUNTRY" | translate}}</small>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-3 col-form-label">{{ "FORM.FIELD.ESTABLISHED" | translate}}</label>
+                    <div class="col-9">
+                        <input class="form-control" formControlName="fundacion" type="date" [(ngModel)]="team.established">
+                        <small *ngIf="this.forma.controls['fundacion'].invalid && this.forma.controls['fundacion'].touched" class="form-text text-danger">{{ "FORM.ERROR.ESTABLISHED | translate}}</small>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-3 col-form-label">{{ "FORM.FIELD.SHIELD" | translate}}</label>
+                    <div class="col-9">
+                        <input class="form-control" type="text" formControlName="escudo" placeholder='{{ "FORM.FIELD.SHIELD" | translate}}' [(ngModel)]="team.urlpic">
+                        <small *ngIf="this.forma.controls['escudo'].invalid && this.forma.controls['escudo'].touched" class="form-text text-danger">{{ "FORM.ERROR.IMAGE" | translate}}</small>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-3 col-form-label">{{ "FORM.FIELD.SHIRT" | translate}}</label>
+                    <div class="col-9">
+                        <input class="form-control" type="text" formControlName="camiseta" placeholder='{{ "FORM.FIELD.SHIELD" | translate}}' [(ngModel)]="team.urlshirt">
+                        <small *ngIf="this.forma.controls['camiseta'].invalid && this.forma.controls['camiseta'].touched" class="form-text text-danger">{{ "FORM.ERROR.IMAGE" | translate}}</small>
+                    </div>
+                </div>
+                <div class="form-group row mt-5">
+                    <div class="col"></div>
+                    <div class="input-group col">
+                        <button mat-raised-button color="primary" (click)="guardar()">
+                            {{ "FORM.FIELD.SAVE" | translate}}
+                        </button>
+                    </div>
+                    <div class="input-group col">
+                        <button mat-raised-button color="primary" (click)="reset()">
+                            {{ "FORM.FIELD.NEW" | translate}}
+                        </button>
+                    </div>
+                    <div class="col"> </div>
+                </div>
+            </form>
+
+        </div>
+        <div class="col-md-2">
+            <div class="row  mt-5" style="vertical-align: top;">
+                <div class="col" style="text-align:'center';" [hidden]="team == null || team.urlpic == null || team.urlpic === ''">
+                    <img [src]="''+team.urlpic | noimage:'escudo'" matTooltip={{team.id}} class="img-fluid tarjeta">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col" style="text-align:'center';" [hidden]="team == null || team.urlshirt == null || team.urlshirt === ''">
+                    <img [src]="''+team.urlshirt | noimage:'camiseta'" matTooltip={{team.id}} class="img-fluid tarjeta">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

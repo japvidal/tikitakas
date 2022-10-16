@@ -1,0 +1,210 @@
+<!--
+<p-card>
+    <ng-template pTemplate="title">FICHA DE JUGADORA</ng-template>
+    <ng-template pTemplate="content">
+        <div class="p-grid p-nogutter p-justify-end">
+            <table>
+                <tr>
+                    <td width="10%"></td>
+                    <td width="40%">
+                        <table>
+                            <tr>
+                                <td>
+                                    NOMBRE
+                                </td>
+                                <td>
+                                    <input #name type="text" [(ngModel)]="this.player.name" size='30' (keyup)="buscar(this.player.name)">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    APELLIDOS
+                                </td>
+                                <td>
+                                    <input #surname type="text" [(ngModel)]="this.player.surname" size='30' (keyup)="buscar(this.player.surname)">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    SOBRENOMBRE
+                                </td>
+                                <td>
+                                    <input #nickname type="text" [(ngModel)]="this.player.nickname" size='30' (keyup)="buscar(this.player.nickname)">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    POSICIÓN
+                                </td>
+                                <td>
+                                    <select name="position" [(ngModel)]="this.player.position">
+                                <option [value]="item.id" *ngFor="let item of datosPosiciones">{{ item.id | posiciones:datosPosiciones:'es' }}</option>
+                                </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    FECHA DE NACIMIENTO
+                                </td>
+                                <td>
+                                    <input #birthdate type="date" [(ngModel)]="this.player.birthdate">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    PAIS
+                                </td>
+                                <td>
+                                    <select name="country" [(ngModel)]="this.player.country">
+                                        <option [value]="item.cca2" *ngFor="let item of datosCountries">{{item.translations.spa.common}}</option>
+                                </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="10%"></td>
+                                <td width="40%">
+                                    <table>
+                                        <tr>
+                                            <td width="40%"></td>
+                                            <td width='15%'>
+                                                <div class="p-grid p-nogutter p-justify-end">
+                                                    <p-button label="NUEVO" (onClick)="ngOnInit()" icon="pi pi-angle-left"></p-button>
+                                                </div>
+                                            </td>
+                                            <td width='30%'></td>
+                                            <td width='15%'>
+                                                <div class="p-grid p-nogutter p-justify-end">
+                                                    <p-button label="REGISTRAR" (onClick)="enviar()" icon="pi pi-angle-right"></p-button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                                <td></td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td width="5%"></td>
+                    <td width="20%">
+                        <img [src]="''+this.player.id | noimage:'jugadora'" class="img-thumb" alt="" width='100%' height="100%">
+                    </td>
+                    <td width="5%"></td>
+                    <td width="20%">
+                        <table>
+                            <tr>
+                                <td align="CENTER">PUNTUACION</td>
+                            </tr>
+                            <tr>
+                                <td width="50%">
+                                    <table>
+                                        <tr>
+                                            <td width="80%">VELOCIDAD</td>
+                                            <td width="20%"><input #velocidad type="number" min="00" max="99" [(ngModel)]="this.player.velocidad" size='2' (blur)="avg()"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>RESISTENCIA</td>
+                                            <td><input #resistencia type="number" min="00" max="99" [(ngModel)]="this.player.resistencia" size='2' (blur)="avg()"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>DEF.AEREA</td>
+                                            <td><input #defaerea type="number" min="00" max="99" [(ngModel)]="this.player.defaerea" size='2' (blur)="avg()"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>DEF.ESTRATEGIA</td>
+                                            <td><input #defestrategia type="number" min="00" max="99" [(ngModel)]="this.player.defestrategia" size='2' (blur)="avg()"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>AGRESIVIDAD</td>
+                                            <td><input #defagresividad type="number" min="00" max="99" [(ngModel)]="this.player.defagresividad" size='2' (blur)="avg()"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>ANTICIPACIÓN</td>
+                                            <td><input #defanticipacion type="number" min="00" max="99" [(ngModel)]="this.player.defanticipacion" size='2' (blur)="avg()"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>VISIÓN JUEGO</td>
+                                            <td><input #visionjuego type="number" min="00" max="99" [(ngModel)]="this.player.visionjuego" size='2' (blur)="avg()"></td>
+                                        </tr>
+                                    </table>
+                                </td>
+                                <td width="50%">
+                                    <table>
+                                        <tr>
+                                            <td>CABEZA</td>
+                                            <td><input #ataqueaereo type="number" min="00" max="99" [(ngModel)]="this.player.ataqueaereo" size='2' (blur)="avg()"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>REGATE</td>
+                                            <td><input #ataqueregate type="number" min="00" max="99" [(ngModel)]="this.player.ataqueregate" size='2' (blur)="avg()"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>PASES</td>
+                                            <td><input #ataquepases type="number" min="00" max="99" [(ngModel)]="this.player.ataquepases" size='2' (blur)="avg()"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>REMATE</td>
+                                            <td><input #ataqueremate type="number" min="00" max="99" [(ngModel)]="this.player.ataqueremate" size='2' (blur)="avg()"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>FALTAS</td>
+                                            <td><input #ataquefaltas type="number" min="00" max="99" [(ngModel)]="this.player.ataquefaltas" size='2' (blur)="avg()"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>PENALTYS</td>
+                                            <td><input #ataquepenaltys type="number" min="00" max="99" [(ngModel)]="this.player.ataquepenaltys" size='2' (blur)="avg()"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>PORTERO</td>
+                                            <td><input #ataquepenaltys type="number" min="00" max="99" [(ngModel)]="this.player.portero" size='2' (blur)="avg()"></td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="center">--------------------</td>
+                            </tr>
+                            <tr>
+                                <td align="center">AVERAGE:{{this.player.totalmedia | number:'1.0-0'}}</td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td width="5%"></td>
+                </tr>
+            </table>
+        </div>
+
+
+        <p-table [value]="datosPlayers" selectionMode="single" [(selection)]="player" dataKey="id" [paginator]="true" [rows]="10" [showCurrentPageReport]="true" currentPageReportTemplate="Mostrando {first} a {last} de {{datosPlayers.length}} registros" [rowsPerPageOptions]="[10,20,200]"
+            [totalRecords]="totalplayers">
+
+            <ng-template pTemplate="header" let-columns>
+                <tr>
+                    <th width="3%">ID</th>
+                    <th width="15%">NOMBRE</th>
+                    <th width="15%">APELLIDOS</th>
+                    <th width="15%">SOBRENOMBRE</th>
+                    <th width="15%">POSICIÓN</th>
+                    <th width="13%">PAÍS</th>
+                    <th width="13%">NACIMIENTO</th>
+                    <th width="4%">EDAD</th>
+                    <th width="7%"></th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-player>
+                <tr [pSelectableRow]="player" class="bootstrap4-light-purple">
+                    <td width="3%">{{ player.id }}</td>
+                    <td width="15%">{{ player.name }}</td>
+                    <td width="15%">{{ player.surname }}</td>
+                    <td width="15%">{{ player.nickname }}</td>
+                    <td width="15%">{{ player.position | posiciones:datosPosiciones:'es' }}</td>
+                    <td width="13%">{{ player.country | paises:datosCountries }}</td>
+                    <td width="13%">{{ player.birthdate | date:'dd/MM/yyyy' }}</td>
+                    <td width="4%">{{ player.birthdate | utils:'age' }}</td>
+                    <td width="7%"><img [src]="''+this.player.id | noimage:'jugadora'" class="img-thumb" alt="" width="100%" height="100%"></td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </ng-template>
+</p-card>
+<p-toast [style]="{marginTop: '80px'}" position="top-center"></p-toast>
+-->

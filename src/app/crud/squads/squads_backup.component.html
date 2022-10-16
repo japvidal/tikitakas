@@ -1,0 +1,127 @@
+<!--
+<p-card>
+    <ng-template pTemplate="title">FICHA DE PLANTILLAS</ng-template>
+    <ng-template pTemplate="content">
+        <div class="p-grid p-nogutter p-justify-end">
+            <table>
+                <table>
+                    <tr>
+                        <td width="70%">
+                            <table>
+                                <tr>
+                                    <td>
+                                        <table>
+                                            <tr>
+                                                <td width="30%"></td>
+                                                <td width="40%">
+                                                    <div class="card-title">TEMPORADA</div>
+                                                    <div class="card-body">
+                                                        <select name="season" [(ngModel)]="this.playerteam.season" (blur)="cargarEquipos()">
+                                                            <option  [value]="item.id" *ngFor="let item of seasons">{{ item.nombre }}</option>
+                                                        </select>
+                                                    </div>
+                                                </td>
+                                                <td width="30%"></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td width="30%">
+                                        <div class="card-title">SELECCIONE EQUIPO</div>
+                                        <div class="card-body">
+                                            <select name="equipo" [(ngModel)]="this.playerteam.idTeam" (blur)="cargarPlantillas(this.playerteam.idTeam, this.playerteam.season)">
+                                                <option  [value]="item.id" *ngFor="let item of teams">{{ item.nickname }}</option>
+                                            </select>
+                                        </div>
+                                    </td>
+                                    <td width="40%">
+                                        <div class="card-title">SELECCIONE JUGADOR</div>
+                                        <div class="card-body">
+                                            <select name="player" [(ngModel)]="this.playerteam.idPlayer">
+                                                <option  [value]="item.id" *ngFor="let item of players">{{ item.nickname }}</option>
+                                            </select>
+                                        </div>
+                                    </td>
+                                    <td width="30%">
+                                        <div class="card-title">DORSAL</div>
+                                        <div class="card-body">
+                                            <input name="squad" [(ngModel)]="this.playerteam.dorsal" type="number" min="0" max="99" maxlength="2">
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td width="30%">
+                            <table>
+                                <tr></tr>
+                                <tr>
+                                    <td width="30%"></td>
+                                    <td width="40%"><img [src]="''+this.playerteam.idPlayer | noimage:'jugadora'" class="img-thumb" alt="" width='100%' height="100%"></td>
+                                    <td width="30%"></td>
+                                </tr>
+                                <tr></tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </table>
+        </div>
+        <div class="p-grid p-nogutter p-justify-end">
+            <table>
+                <tr>
+                    <td width="20%"></td>
+                    <td width="40%">
+                        <table>
+                            <tr>
+                                <td width='40%'>
+                                    <div class="p-grid p-nogutter p-justify-end">
+                                        <p-button label="NUEVO" (onClick)="ngOnInit()" icon="pi pi-angle-left"></p-button>
+                                    </div>
+                                </td>
+                                <td width='20%'></td>
+                                <td width='40%'>
+                                    <div class="p-grid p-nogutter p-justify-end">
+                                        <p-button label="REGISTRAR" (onClick)="enviar()" icon="pi pi-angle-right"></p-button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+
+                        <td width='40%'></td>
+                </tr>
+            </table>
+        </div>
+        <div> TABLA CON EL LISTADO DE JUGADORES DE LA PLANTILLA</div>
+
+        <p-table [value]="playersTeam" selectionMode="single" dataKey="id" [paginator]="true" [rows]="10" [showCurrentPageReport]="true" currentPageReportTemplate="Mostrando {first} a {last} de {{totalplayers}} registros" [rowsPerPageOptions]="[10,20,40]" [totalRecords]="totalplayers">
+
+            <ng-template pTemplate="header" let-columns>
+                <tr>
+                    <th width="8%">DORSAL</th>
+                    <th width="20%">NOMBRE</th>
+                    <th width="18%">APELLIDOS</th>
+                    <th width="12%">SOBRENOMBRE</th>
+                    <th width="20%">POSICIÓN</th>
+                    <th width="10%">PAÍS</th>
+                    <th width="10%"></th>
+                    <th width="2%"></th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-player>
+                <tr [pSelectableRow]="player" class="bootstrap4-light-purple">
+                    <td width="8%">{{ player.dorsal }}</td>
+                    <td width="20%">{{ player.name }}</td>
+                    <td width="18%">{{ player.surname }}</td>
+                    <td width="12%">{{ player.nickname }}</td>
+                    <td width="20%">{{ player.position | posiciones:datosPosiciones:'es' }}</td>
+                    <td width="10%">{{ player.country | paises:datosCountries }}</td>
+                    <td width="10%"><img [src]="''+this.player.id | noimage:'jugadora'" class="img-thumb" alt="" width="100%" height="100%"></td>
+                    <th width="2%"><img src="/assets/images/trash.png" class="img-thumb" alt="" width="100%" height="100%" (click)="eliminar(player.idsquad)"></th>
+                </tr>
+            </ng-template>
+        </p-table>
+    </ng-template>
+</p-card>
+<p-toast [style]="{marginTop: '80px'}" position="top-center"></p-toast>
+-->

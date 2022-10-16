@@ -1,0 +1,31 @@
+<div>
+    <h1 class="titulo">MATCHDAY</h1>
+    <mat-stepper [linear]="isLinear" #stepper>
+        <mat-step [stepControl]="firstFormGroup" label="{{ 'MATCHDAY.SELECT.TEAM.LOCAL' | translate }}">
+            <div class="mt-5">
+                <ng-template matStepContent>
+                    <app-selector [local]=true></app-selector>
+                </ng-template>
+            </div>
+        </mat-step>
+        <mat-step [stepControl]="secondFormGroup" label="{{ 'MATCHDAY.SELECT.TEAM.VISITOR' | translate }}">
+            <div class="mt-5">
+                <ng-template matStepContent>
+                    <app-selector [local]=false></app-selector>
+                </ng-template>
+            </div>
+        </mat-step>
+        <mat-step>
+            <ng-template matStepLabel>{{ 'MATCHDAY.READY.MATCH' | translate }}</ng-template>
+            <div class="mt-5">
+                <ng-template matStepContent>
+                    <app-manager></app-manager>
+                </ng-template>
+            </div>
+            <div>
+                <button mat-button matStepperPrevious>Back</button>
+                <button mat-button (click)="stepper.reset()">Reset</button>
+            </div>
+        </mat-step>
+    </mat-stepper>
+</div>

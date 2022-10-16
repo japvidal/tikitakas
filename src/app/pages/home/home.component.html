@@ -1,0 +1,19 @@
+<!-- Slider main container -->
+<div class="swiper-container">
+    <div class="swiper-wrapper">
+        <!-- Additional required wrapper -->
+        <div *ngFor="let imagen of imagenes" class="swiper-slide" [ngStyle]="{
+            'background-size': 'cover',
+            'background-image': 'url('+ imagen +')' }">
+
+            <!-- If we need pagination -->
+            <div class="swiper-pagination"></div>
+
+            <!-- If we need navigation buttons -->
+            <div (click)="onSlidePrev()" class="swiper-button-prev"></div>
+            <div (click)="onSlideNext()" class="swiper-button-next"></div>
+        </div>
+    </div>
+</div>
+
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>

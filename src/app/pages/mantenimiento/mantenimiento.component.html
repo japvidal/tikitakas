@@ -1,0 +1,37 @@
+<mat-tab-group mat-align-tabs="center" backgroundColor="primary">
+    <mat-tab label="{{ 'MENU.COMPETITIONS' | translate }}">
+        <ng-template matTabContent>
+            <div class="mt-5">
+                <app-competitions></app-competitions>
+            </div>
+        </ng-template>
+    </mat-tab>
+    <mat-tab label="{{ 'MENU.CLUBS' | translate }}">
+        <ng-template matTabContent>
+            <div class="mt-5">
+                <app-clubs></app-clubs>
+            </div>
+        </ng-template>
+    </mat-tab>
+    <mat-tab label="{{ 'MENU.PLAYERS' | translate }}">
+        <ng-template matTabContent>
+            <div class="mt-5">
+                <app-players></app-players>
+            </div>
+        </ng-template>
+    </mat-tab>
+    <mat-tab label="{{ 'MENU.SQUADS' | translate }}">
+        <ng-template matTabContent>
+            <div class="mt-5">
+                <app-squads></app-squads>
+            </div>
+        </ng-template>
+    </mat-tab>
+    <mat-tab label="{{ 'MENU.REFEREES' | translate }}">
+        <ng-template matTabContent>
+            <div class="mt-5">
+                <app-referees></app-referees>
+            </div>
+        </ng-template>
+    </mat-tab>
+</mat-tab-group>

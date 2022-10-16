@@ -1,0 +1,82 @@
+.headers-align .mat-expansion-panel-header-description {
+    justify-content: space-between;
+    align-items: center;
+}
+
+.headers-align .mat-form-field {
+    margin-left: 8px;
+}
+
+.mat-form-field {
+    width: "100%";
+    margin-left: 8px;
+}
+
+.mat-panel-title {
+    color: #673ab7;
+}
+
+.mat-panel-description .mat-expansion-panel-header-description {
+    color: #673ab7;
+}
+
+.label {
+    color: #673ab7;
+}
+
+.mat-slider {
+    color: #673ab7;
+}
+
+.h1 {
+    font-size: 50px;
+    text-align: center;
+    color: #673ab7;
+}
+
+.h3 {
+    font-size: small;
+    text-align: center;
+    color: #0a0a0b;
+}
+
+.h4 {
+    font-size: 30px;
+    text-align: center;
+    color: #673ab7;
+}
+
+.button-form {
+    color: #673ab7;
+    border-color: #673ab7;
+}
+
+.tarjeta {
+    border-radius: 50px;
+    box-shadow: 0px 0px 10px rgba(97, 11, 90, 0.5);
+    margin: 30px;
+    min-width: 120px;
+    max-width: 180px;
+    min-height: 120px;
+    max-height: 180px;
+}
+
+.circular {
+    border-radius: 50%;
+}
+
+.contenedor {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.p {
+    cursor: pointer;
+}
+
+.div {
+    background-color: #673ab7;
+    color: white;
+}

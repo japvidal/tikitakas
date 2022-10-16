@@ -1,0 +1,139 @@
+{
+    "HOME": {
+        "TITLE": "WOMEN SOCCER",
+        "EXPLANATION": "Enjoy the new soccer through this app"
+    },
+    "MENU": {
+
+        "HOME": "HOME",
+        "DATA": "DATA",
+        "DATACENTER": "DATA MANAGER",
+        "PLAYERS": "PLAYERS",
+        "CLUBS": "CLUBS",
+        "SQUADS": "SQUADS",
+        "COMPETITIONS": "COMPETITIONS",
+        "REFEREES": "REFEREES",
+        "MATCHDAY": "MATCHDAY",
+        "LOGIN": "LOGIN",
+        "LOGOUT": "LOGOUT",
+        "REGISTER": "REGISTER",
+        "TITLE": "TIKITAKAS by LAIA2K11",
+        "VIDEOS": "VIDEOS",
+        "NEWS": "NEWS",
+        "PICTURES": "PICTURES"
+    },
+
+    "MATCHDAY": {
+        "TITLE": "MATCH DAY",
+        "SELECT.TEAMS": "SELECT TEAMS",
+        "SELECT.SQUADS": "CHOOSE SQUADS",
+        "READY.MATCH": "READY!",
+        "TEAM": "TEAM",
+        "STRATEGY": "STRATEGY",
+        "SEASON": "SEASON",
+        "TEAM.LOCAL": "LOCAL TEAM",
+        "TEAM.VISITOR": "VISITOR TEAM",
+        "CONVOCADOS": "SELECTED",
+        "PLANTILLA": "STAFF"
+    },
+
+    "FORM": {
+        "TITLE": {
+            "REFEREE": "REFEREE",
+            "PLAYER": "PLAYER",
+            "SQUAD": "SQUAD",
+            "CLUB": "TEAM",
+            "COMPETITION": "COMPETITION"
+        },
+        "FIELD": {
+            "SEARCH": "INSERT HERE A STRING OF SEARCH",
+            "NEW": "NEW",
+            "SAVE": "SAVE",
+            "NAME": "NAME",
+            "COUNTRY": "COUNTRY",
+            "SELECT.COUNTRY": "Select country",
+            "ALIAS": "ALIAS",
+
+            "HEAD.PLAYER": "PLAYER DATA",
+            "SURNAME": "SURNAME",
+            "BIRTHDATE": "BIRTHDATE",
+            "POSITION": "POSITION",
+            "SELECT.POSITION": "Select position",
+            "VALORATION": "SKILLS",
+            "SPEED": "SPEED",
+            "RESISTENCY": "RESISTENCY",
+            "AIRDEFENSE": "AIR DEF.",
+            "STRATEGYDEF": "STRATEGY DEF.",
+            "AGRESIVITY": "AGRESIVITY",
+            "ANTICIPATION": "ANTICIPATION",
+            "GAMEVIEW": "GAME VIEWER",
+            "HEAD": "HEAD",
+            "DRIBBLING": "DRIBBLING",
+            "PASS": "PASS SUCCESS",
+            "HIT": "HIT SUCCESS",
+            "FOULS": "FOULS SUCCESS",
+            "PENALTYS": "PENALTYS SUCCESS",
+            "GOALKEEPER": "GOALKEEPER",
+
+            "HEAD.TEAM": "TEAM DATA",
+            "AVERAGE": "AVERAGE",
+            "SHIELD": "SHIELD",
+            "SHIRT": "T-SHIRT",
+            "ESTABLISHED": "ESTABLISED",
+
+            "HEAD.COMPETITION": "COMPETITION DATA",
+            "COMPETITION": "COMPETITION",
+            "ASSOCIATION": "ASSOCIATION",
+            "PICTURE": "PICTURE",
+
+            "HEAD.SQUADS": "SQUAD DATA",
+            "SEASON": "SEASON",
+            "TEXT.SELECT.SEASON": "You must select season of squad",
+            "SELECT.SEASON": "Select a season",
+            "TEAM": "Team",
+            "TEXT.SELECT.TEAM": "You must select team of squad",
+            "SELECT.TEAM": "Select a team",
+            "PLAYER": "PLAYER",
+            "TEXT.SELECT.PLAYER": "You must select a new player of squad",
+            "SELECT.PLAYER": "Select a player",
+            "NUMBER": "NUMBER",
+            "TEXT.SELECT.NUMBER": "You must select a number for the player of squad",
+            "SQUAD": "SQUAD",
+            "PREV": "PREVIOUS",
+            "DELETE": "REMOVE",
+
+            "HEAD.REFEREE": "REFEREE DATA",
+            "BRAVERY": "BRAVERY",
+            "CARD": "CARDS",
+            "HOMER": "HOMER"
+
+        },
+        "ERROR": {
+            "NAME": "ADD A NAME",
+            "SURNAME": "ADD A SURNAME",
+            "ALIAS": "ADD AN ALIAS",
+            "ASSOCIATION": "ADD AN ASSOCIATION",
+            "ESTABLISHED": "ADD AN ESTABLISHMENT DATE",
+            "BIRTHDATE": "ADD A BIRTHDATE",
+            "POSITION": "ADD POSITION ON THE FIELD",
+            "COUNTRY": "ADD A COUNTRY",
+            "SEASON": "SELECT A SEASON",
+            "TEAM": "SELECT A TEAM",
+            "PLAYER": "SELECT A PLAYER",
+            "DORSAL": "SELECT A NUMBER",
+            "MESSAGE": "SOMETHING IS WRONG",
+            "DATA": "CHECK FORM DATA"
+
+        },
+        "OK": {
+            "MESSAGE": "RECORD HAS BEEN COMPLETED",
+            "MESSAGEEDIT": "RECORD HAS BEEN MODIFIED",
+            "DONE": "DONE!",
+            "MESSAGEDEL": "RECORD HAS BEEN DELETED",
+            "CONTINUE.TEAM": "¿SEGUIMOS CON EL MISMO EQUIPO?",
+            "CLEAN": "LIMPIAR FORMULARIO"
+        }
+
+
+    }
+}

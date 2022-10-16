@@ -1,0 +1,95 @@
+<div class="container-fluid">
+    <div class="row" width="100%">
+        <div class="col-md-5  mt-5 overflow-y='scroll'">
+            <input name="txtBuscar" [(ngModel)]="buscar" (keyup)="buscador( )" class="form-control mr-2" type="search" placeholder='{{ "FORM.FIELD.SEARCH" | translate}}' aria-label="Search">
+            <cdk-virtual-scroll-viewport appendOnly itemSize="30" class="viewport">
+                <div class="row row-cols-auto">
+                    <div class="col-md-4 animate__animated animate__fadeIn" *ngFor="let item of datosReferees">
+
+                        <img [src]="''+item.urlpic | noimage:'arbitra'" matTooltip={{this.item.id}} (click)="selecciona(this.item)" class="img-fluid poster">
+                        <div>
+                            <p (click)="selecciona(this.item)" class="p">{{ item.name }} {{ item.surname }}</p>
+                        </div>
+
+                    </div>
+                </div>
+            </cdk-virtual-scroll-viewport>
+        </div>
+        <div class="col-md-4 mt-5">
+            <form autocomplete="off" [formGroup]="forma">
+                <div>
+                    <div class="form-group row">
+                        <label class="col-4 col-form-label">{{ "FORM.FIELD.NAME" | translate}}</label>
+                        <div class="col-8">
+                            <input class="form-control" type="text" formControlName="nombre" placeholder='{{ "FORM.FIELD.NAME" | translate}}' [(ngModel)]="referee.name" oninput="javascript:this.value=this.value.toUpperCase()">
+                            <small *ngIf="this.forma.controls['nombre'].invalid && this.forma.controls['nombre'].touched" class="form-text text-danger">{{ "FORM.ERROR.NAME" | translate}}</small>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-4 col-form-label">{{ "FORM.FIELD.SURNAME" | translate}}</label>
+                        <div class="col-8">
+
+                            <input class="form-control" type="text" formControlName="apellido" placeholder='{{ "FORM.FIELD.SURNAME" | translate}}' [(ngModel)]="referee.surname" oninput="javascript:this.value=this.value.toUpperCase()">
+                            <small *ngIf="this.forma.controls['apellido'].invalid && this.forma.controls['apellido'].touched" class="form-text text-danger">{{ "FORM.ERROR.SURNAME" | translate}}</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-4 col-form-label">{{ "FORM.FIELD.COUNTRY" | translate}}</label>
+                    <div class="col-8">
+
+                        <mat-select class="form-control" formControlName="pais" [disabled]="datosCountries.length === 0" [(ngModel)]="referee.country">
+                            <mat-option value="">{{ "FORM.FIELD.SELECT.COUNTRY" | translate}}</mat-option>
+                            <mat-option *ngFor="let pais of datosCountries" [value]="pais.cca2">
+                                {{pais.translations.spa.common}}
+                            </mat-option>
+                        </mat-select>
+                        <small *ngIf="this.forma.controls['pais'].invalid && this.forma.controls['pais'].touched" class="form-text text-danger">{{ "FORM.ERROR.COUNTRY" | translate}}</small>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-md-4 col-form-label">{{ "FORM.FIELD.BRAVERY" | translate}}</label>
+                    <div class="col-md-8">
+                        <mat-slider color="primary" thumbLabel min="0" max="10" step="1" value="0" formControlName="valiente" [(ngModel)]="referee.valiente"></mat-slider>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-md-4 col-form-label">{{ "FORM.FIELD.HOMER" | translate}}</label>
+                    <div class="col-md-8">
+                        <mat-slider color="primary" thumbLabel min="0" max="10" step="1" value="0" formControlName="casero" [(ngModel)]="referee.casero"></mat-slider>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-md-4 col-form-label">{{ "FORM.FIELD.CARD" | translate}}</label>
+                    <div class="col-md-8">
+                        <mat-slider color="primary" thumbLabel min="0" max="10" step="1" value="0" formControlName="tarjetero" [(ngModel)]="referee.tarjetero">{{ "FORM.FIELD.CARD" | translate}}</mat-slider>
+                    </div>
+                </div>
+
+                <div class="form-group row mt-5">
+                    <div class="col"></div>
+                    <div class="input-group col">
+                        <button mat-raised-button color="primary" (click)="guardar()">
+                            {{ "FORM.FIELD.SAVE" | translate}}
+                        </button>
+                    </div>
+                    <div class="col"></div>
+                    <div class="input-group col">
+                        <button mat-raised-button color="primary" (click)="reset()">
+                            {{ "FORM.FIELD.NEW" | translate}}
+                        </button>
+                    </div>
+                    <div class="col"> </div>
+                </div>
+
+            </form>
+
+        </div>
+        <div class="col-md-3 mt-5  valign='middle'" [hidden]="referee == null || referee.urlpic === 0">
+            <img [src]="''+referee.urlpic | noimage:'arbitra'" matTooltip={{referee.id}} class="img-fluid tarjeta">
+        </div>
+    </div>
+</div>

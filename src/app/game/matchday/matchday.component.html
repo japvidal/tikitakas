@@ -1,0 +1,66 @@
+<mat-card>
+    <div class="body">
+        <table>
+            <tr>
+                <td width="40%"></td>
+                <td width="20%">
+                    <div class="container" align='center'>
+                        <button type="button" class="btn btn-outline-primary btn-block" (click)='toplay()'>TO PLAY</button>
+                    </div>
+                </td>
+                <td width="40%"></td>
+            </tr>
+
+            <tr>
+                <td width="40%" align="left">
+                    <div [ngStyle]="{'color':this.colorLocal}">
+                        <h4 class="display-5" align='center'>EQUIPO LOCAL</h4>
+                    </div>
+                </td>
+                <td width="20%"></td>
+                <td width="40%" align="left">
+                    <div [ngStyle]="{'color':this.colorVisitor}">
+                        <h4 class="display-5" align='center'>EQUIPO VISITANTE</h4>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td width="40%">
+                    <div [ngStyle]="{'color':this.colorLocal}" *ngIf='mostrarlocal'>
+                        <table>
+                            <tr *ngFor="let positions of posicionesLocal; let i = index" [attr.data-index]="i">
+                                <td width="60%" align="left">
+                                    {{ positions | posiciones:datosPosiciones:'es' }}
+                                </td>
+                                <td width="40%" align="right">
+                                    <select [id]='jugadorl[i].idPlayer' [ngStyle]="{'background-color':this.colorBack}" [style]=" {'color':this.colorLocal}" style='width:"100%"' (blur)='actualizaPosiciones( $event , positions, true)'>
+                                        <option [value]=null [selected]="positions == 'RE'">----</option>
+                                        <option [value]="player.idPlayer"  [selected]="player.positionmatch == positions" *ngFor="let player of plantillaLocal">{{ player.dorsal }}.{{ player.nickname }}</option>
+                                    </select>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </td>
+                <td width="20%"></td>
+                <td width="40%">
+                    <div [ngStyle]="{'color':this.colorVisitor}" *ngIf='mostrarvisitante'>
+                        <table>
+                            <tr *ngFor="let positions of posicionesVisitante; let i = index" [attr.data-index]="i">
+                                <td width="60%" align="left">
+                                    {{ positions | posiciones:datosPosiciones:'es' }}
+                                </td>
+                                <td width="40%" align="right">
+                                    <select [id]='jugadorv[i].idPlayer' [ngStyle]="{'background-color':this.colorBack}" [style]=" {'color':this.colorVisitor}" style='width:"100%"' (blur)="actualizaPosiciones($event, positions, false)">
+                                        <option [ngValue]=null [selected]="positions == 'RE'">----</option> 
+                                        <option  [value]="player.idPlayer" [selected]="player.positionmatch == positions" *ngFor="let player of plantillaVisitante">{{ player.dorsal }}.{{ player.nickname }}</option>
+                                    </select>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+</mat-card>
