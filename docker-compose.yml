@@ -27,14 +27,11 @@ services:
       dockerfile: ./futfem-front.Dockerfile
     volumes:
         - ./nginx/nginx.conf:/etc/nginx/conf.d/site.conf
-        - ./dist/tikitakas:/usr/share/nginx/html
+        - ./dist/tikitakas:/etc/nginx/nginx/html
     ports:
         - 8081:80
     networks:
       - futfem-network
-    # logging:
-    #  driver: "syslog"
-    #  options:
-    #    tag: "tryasport"
 networks:
   futfem-network:
+    driver: bridge
