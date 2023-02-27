@@ -1,7 +1,7 @@
 # tikitakas
-Angular Front-End Web app. Database and manager of Women Football
+This is my Angular Front-End Web app. Database and manager of Women Football
 
-We are using next features:
+I am implementing the next features:
 
 swiper
 material-angular
